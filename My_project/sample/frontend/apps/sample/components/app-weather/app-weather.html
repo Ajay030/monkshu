@@ -4,5 +4,29 @@
     <input type="button" value="weather report" id="get-weather" onclick='monkshu_env.components["app-weather"].getWeather()'>
     <div >
        <h1 id="ans">Enter City name in above text box  !!!</h1>  
+       <table id="tab" style="width: 100%; visibility: hidden;">
+        <tr>
+          <th>weather</th>
+          <th>temperature</th>
+          <th>Pressure</th>
+          <th>Humidity</th>
+          <th>Speed</th>
+          <th>Sunrise</th>
+        </tr>
+        <tr>
+          <td id="wh"></td>
+          <td id="tm"></td>
+          <td id="pr"></td>
+          <td id="hu"></td>
+          <td id="sp"></td>
+          <td id="sr"></td>
+        </tr>
+      </table>
+      <style>
+        table, th, td {
+          border:1px solid black;
+          text-align: center;
+        }
+        </style>
     </div>
 </div>

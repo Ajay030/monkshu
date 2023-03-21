@@ -17,10 +17,13 @@ exports.doService = async (jsonReq) => {
 const getWeather = async (jsonReq) => {
     if (jsonReq) {
         console.log(jsonReq.city);
-        return fetch(`https://api.openweathermap.org/data/2.5/weather?appid=bf02a7efa463b77e1dc071ba0c63ba5b&q=${jsonReq.city}`)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(error => console.error(error));
+        var ans = fetch(`https://api.openweathermap.org/data/2.5/weather?appid=bf02a7efa463b77e1dc071ba0c63ba5b&q=${jsonReq.city}`)
+            .then(response => {
+                return response.json()})
+            .catch(error => {
+                return error;
+            });
+            return ans;
     }
     else {
         console.log("else block")

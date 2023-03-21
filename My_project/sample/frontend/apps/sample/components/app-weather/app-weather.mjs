@@ -15,7 +15,26 @@ const getWeather = async () => {
     let resp = await apiman.rest(APP_CONSTANTS.API_WEATHER, "POST", jsonReq, true);
     if (!resp.result) router.reload();
     console.log(resp.results.message);
-    app_weather.shadowRoot.querySelector("#ans").innerHTML = JSON.stringify(resp.results.message.weather);
+
+    //create custom object...
+
+    let jsonRes = {}
+    jsonRes.weather = resp.results.message.weather[0].main;
+    jsonRes.temp = resp.results.message.main.temp;
+    jsonRes.pressure = resp.results.message.main.pressure;
+    jsonRes.humidity = resp.results.message.main.humidity;
+    jsonRes.speed = resp.results.message.wind.speed;
+    jsonRes.sunrise = resp.results.message.sys.sunrise;    
+    //adding values ....
+
+    app_weather.shadowRoot.querySelector("#wh").innerHTML = JSON.stringify(jsonRes.weather);
+    app_weather.shadowRoot.querySelector("#tm").innerHTML = JSON.stringify(jsonRes.temp);
+    app_weather.shadowRoot.querySelector("#pr").innerHTML = JSON.stringify(jsonRes.pressure);
+    app_weather.shadowRoot.querySelector("#hu").innerHTML = JSON.stringify(jsonRes.humidity);
+    app_weather.shadowRoot.querySelector("#sp").innerHTML = JSON.stringify(jsonRes.speed);
+    app_weather.shadowRoot.querySelector("#sr").innerHTML = JSON.stringify(jsonRes.sunrise);
+
+    app_weather.shadowRoot.querySelector("#tab").style.visibility = "visible";
 }
 
 //mandatory
