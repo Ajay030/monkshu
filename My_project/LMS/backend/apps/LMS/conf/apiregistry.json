@@ -1,0 +1,4 @@
+{
+    "/apis/login":"/apis/login.js?needsToken=false&addsToken=sub:access",
+    "/apis/signup":"/apis/signup.js?needsToken=false&addsToken=sub:access"
+}
