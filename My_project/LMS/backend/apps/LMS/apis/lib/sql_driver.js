@@ -12,9 +12,11 @@ const accessAsync = util.promisify(fs.access);
 const API_CONSTANTS = require(`${__dirname}/constants.js`);
 
 const DB_CREATION_SQLS = [
-  'CREATE TABLE User (ID INTEGER PRIMARY KEY AUTOINCREMENT,First_name text NOT NULL, Last_name text NOT NULL, Email text NOT NULL, Password text NOT NULL)',
+  'CREATE TABLE User (ID INTEGER PRIMARY KEY AUTOINCREMENT,First_name text NOT NULL, Last_name text NOT NULL, Email text NOT NULL, Password text NOT NULL , Role text)',
   'CREATE TABLE Author(ID INTEGER PRIMARY KEY AUTOINCREMENT,Name text NOT NULL)',
-  
+  'CREATE TABLE Book_author(ID INTEGER PRIMARY KEY AUTOINCREMENT,Book_id text,Author_id text)',
+  'CREATE TABLE Books (ID INTEGER PRIMARY KEY AUTOINCREMENT, Name text ,ISBN INTEGER,Category text,Edition text,Shelf_no INTEGER,Row_no INTEGER , Count INTEGER)',
+  'CREATE TABLE Transactions (ID INTEGER PRIMARY KEY AUTOINCREMENT, Id_book text , User_id text,Borrow_date text , Status text)',
 ];
 
 const DB_PATH = API_CONSTANTS.DB_PATH;

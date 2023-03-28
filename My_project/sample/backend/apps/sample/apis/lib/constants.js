@@ -11,3 +11,18 @@ exports.LIB_PATH = path.resolve(__dirname + "/../lib");
 // Simple API Response for success or failure
 exports.API_RESPONSE_TRUE = { result: true };
 exports.API_RESPONSE_FALSE = { result: false };
+ 
+// db connection
+exports.API_INSUFFICIENT_PARAMS = 'insufficient params';
+
+//sql driver path
+exports.SQL_DRIVER_PATH = path.resolve(
+  __dirname + '/../lib/' + 'sql_driver.js'
+);
+
+exports.SCHEMAS_PATH = path.resolve(
+  __dirname + '/../conf/' + 'table_schemas.json'
+);
+
+exports.DB_PATH = '/home/shaitaanop/Documents/task2/task.db';
+exports.DB_FOLDER_PATH = '/home/shaitaanop/Documents/task2';

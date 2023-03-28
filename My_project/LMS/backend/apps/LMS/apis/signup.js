@@ -6,7 +6,7 @@ exports.doService = async (jsonReq) => {
     if (!validateRequest(jsonReq)) return API_CONSTANTS.API_INSUFFICIENT_PARAMS;
     try {
         const checkTable = await sqldriver.runCmd(
-            `CREATE TABLE IF NOT EXISTS User ( ID INTEGER PRIMARY KEY AUTOINCREMENT,First_name text NOT NULL, Last_name text NOT NULL, Email text NOT NULL, Password text NOT NULL)`
+            `CREATE TABLE IF NOT EXISTS User ( ID INTEGER PRIMARY KEY AUTOINCREMENT,First_name text NOT NULL, Last_name text NOT NULL, Email text NOT NULL, Password text NOT NULL,Role text)`
         );
 
         encryptedPassword = await bcrypt.hash(jsonReq.Password, 10);

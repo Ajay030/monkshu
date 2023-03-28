@@ -12,7 +12,7 @@ const accessAsync = util.promisify(fs.access);
 const API_CONSTANTS = require(`${__dirname}/constants.js`);
 
 const DB_CREATION_SQLS = [
-  'CREATE TABLE tasks ( Weather text NOT NULL UNIQUE, Temperature text NOT NULL, Pressure integer NOT NULL, Humidity text NOT NULL, Speed text NOT NULL, Sunrise text NOT NULL)',
+  'CREATE TABLE Weather_report ( City text NOT NULL UNIQUE, Temperature text NOT NULL , Temperature text NOT NULL, Pressure integer NOT NULL, Humidity text NOT NULL, Speed text NOT NULL, Sunrise text NOT NULL)',
 ];
 
 const DB_PATH = API_CONSTANTS.DB_PATH;
@@ -29,8 +29,8 @@ exports.runCmd = async (cmd, params = []) => {
   await _initDB();
   params = Array.isArray(params) ? params : [params];
   try {
-    await dbRunAsync(cmd, params);
-    return true;
+    let temp=await dbRunAsync(cmd, params);
+      return true;
   } catch (err) {
     console.error(
       `DB error running, ${cmd}, with params ${params}, error: ${err}`

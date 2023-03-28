@@ -1,5 +1,9 @@
 {
     "/apis/message":"/apis/message.js?needsToken=false&addsToken=sub:access",
+    "/apis/getdata":"/apis/getdata.js?needsToken=false&addsToken=sub:access",
+    "/apis/create":"/apis/create.js?needsToken=false&addsToken=sub:access",
+    "/apis/delete":"/apis/delete.js?needsToken=false&addsToken=sub:access",
+    "/apis/adddata":"/apis/adddata.js?needsToken=false&addsToken=sub:access",
     "/apis/random":"/apis/random.js?get=true&key=Mk6DAu4beAzqD6I63Z1jRgQ5WTDa6zQO&needsToken=true",
     "/apis/weather":"/apis/weather.js"
 }

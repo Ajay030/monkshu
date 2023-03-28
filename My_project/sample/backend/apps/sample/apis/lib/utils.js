@@ -30,3 +30,22 @@ module.exports.getUniqueValues = (inputArray) => Object.values(inputArray).filte
 /** Get Current Unix timestamp without milliseconds */
 
 module.exports.getCurrentUnixTimestamp = () => (new Date().getTime() / 1000).toString().split('.')[0];
+
+// for databse connection 
+
+const API_CONSTANTS = require(`${CONSTANTS.APPROOTDIR}/sample/apis/lib/constants`);
+const schemas = require(API_CONSTANTS.SCHEMAS_PATH)
+
+
+exports.createTableQuery = (type) => {
+    return new Promise(resolve => {
+        if(!schemas[type]) resolve(false);
+
+        let schema = schemas[type];
+        let res = ''
+
+        for(let s of schema) res = res + s;
+        
+        resolve(res)
+    })
+}
