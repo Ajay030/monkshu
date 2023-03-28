@@ -8,10 +8,11 @@ exports.doService = async (jsonReq) => {
         const check = await sqldriver.getQuery(
             `SELECT Password FROM User where Email = ?`,[jsonReq.Email]
         );
-        console.log(JSON.stringify(check));
+        console.log(check);
+        console.log(jsonReq.Password);
         if (check) {
-            const isValidPassword = bcrypt.compareSync(jsonReq.Password, JSON.stringify(check));
-            console.log("validity",isValidPassword)
+            let isValidPassword = bcrypt.compareSync(jsonReq.Password, check[0].Password);
+            console.log("validity hh",isValidPassword)
             if (isValidPassword) {
                 return {
                     result: true,
