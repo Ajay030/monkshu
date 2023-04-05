@@ -1,4 +1,12 @@
 {
     "/apis/login":"/apis/login.js?needsToken=false&addsToken=sub:access",
-    "/apis/signup":"/apis/signup.js?needsToken=false&addsToken=sub:access"
+    "/apis/signup":"/apis/signup.js?needsToken=false&addsToken=sub:access",
+    "/apis/insert_book":"/apis/insert_book.js?needsToken=false&addsToken=sub:access",
+    "/apis/delete_book":"/apis/delete_book.js?needsToken=false&addsToken=sub:access",
+    "/apis/get_book":"/apis/get_book.js?needsToken=false&addsToken=sub:access",
+    "/apis/user_data":"/apis/user_data.js?needsToken=false&addsToken=sub:access",
+    "/apis/transactions":"/apis/transactions.js?needsToken=false&addsToken=sub:access",
+    "/apis/authentication":"/apis/authentication.js?needsToken=false&addsToken=sub:access",
+    "/apis/status":"/apis/status.js?needsToken=false&addsToken=sub:access"
+
 }

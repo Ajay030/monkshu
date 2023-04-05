@@ -3,7 +3,7 @@ const sqldriver = require(API_CONSTANTS.SQL_DRIVER_PATH);
 const bcrypt = require("bcryptjs");
 
 exports.doService = async (jsonReq) => {
-    if (!validateRequest(jsonReq.Email)) return API_CONSTANTS.API_INSUFFICIENT_PARAMS;
+    if (!validateRequest(jsonReq )) return API_CONSTANTS.API_INSUFFICIENT_PARAMS;
     try {
         const checkTable = await sqldriver.runCmd(
             `CREATE TABLE User (ID INTEGER PRIMARY KEY AUTOINCREMENT,First_name text , Last_name text , Email text NOT NULL UNIQUE, Password text NOT NULL , Join_date text ,Role text)`
@@ -35,4 +35,4 @@ exports.doService = async (jsonReq) => {
     }
 }
 
-const validateRequest = (jsonReq) => jsonReq;
+const validateRequest = (jsonReq) => jsonReq.Email && jsonReq.First_name && jsonReq.Password ;

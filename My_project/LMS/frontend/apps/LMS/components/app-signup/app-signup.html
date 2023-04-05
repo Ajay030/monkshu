@@ -94,7 +94,9 @@
 			<label>Join date </label>
 			<input type="date" name="Join_date" id="Join_date" placeholder="Confirm your password" value="" required>
 
-			<input type="submit" name="submit" id="submit" value="Sign Up" onclick='monkshu_env.components["app-signup"].loging()'>
+			<input type="button" name="submit" id="submit" value="Sign Up" onclick='monkshu_env.components["app-signup"].signed()'>
+			<p>Already have an account <button id="login" onclick='monkshu_env.components["app-signup"].log()' >login</button></p>
+
 		</form>
 	</div>
 </div>

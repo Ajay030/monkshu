@@ -57,7 +57,8 @@
             <label for="isbn">ISBN:</label>
             <input type="text" id="isbn" name="isbn" value="">
             <br><br>
-            <input type="submit" value="Remove">
+            <input type="button" value="Remove" onclick='monkshu_env.components["app-delbook"].deletion()'>
+            <input type="button" value="back" onclick='monkshu_env.components["app-delbook"].goback()'>
         </form>
     </div>
 </body>

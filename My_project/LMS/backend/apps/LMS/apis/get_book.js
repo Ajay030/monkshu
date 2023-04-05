@@ -5,7 +5,6 @@ exports.doService = async (jsonReq) => {
     const show = await sqldriver.getQuery(
         `SELECT * From Books`
     )
-    console.log(show[0]);
     if(show.length)
     {
         return {

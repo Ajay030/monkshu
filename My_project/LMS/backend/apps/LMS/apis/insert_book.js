@@ -155,4 +155,4 @@ exports.doService = async (jsonReq) => {
 
 }
 
-const validateRequest = (jsonReq) => jsonReq;
+const validateRequest = (jsonReq) => jsonReq.Name && jsonReq.ISBN && jsonReq.Category && jsonReq.Shelf_no && jsonReq.Row_no && jsonReq.Author;

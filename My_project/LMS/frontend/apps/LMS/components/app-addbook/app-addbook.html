@@ -90,7 +90,8 @@
             <label for="author">Author:</label>
             <input type="text" id="author" name="author" value="" required>
 
-            <button type="submit" name="submit" id="submit" value="Sign Up">Submit</button>
+            <button type="button" name="submit" id="submit" value="submit" onclick='monkshu_env.components["app-addbook"].insert()' >Submit</button>
+            <input type="button" value="back" onclick='monkshu_env.components["app-addbook"].goback()'>
         </form>
     </div>
 </body>

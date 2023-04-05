@@ -6,19 +6,27 @@ import { router } from "/framework/js/router.mjs";
 import { monkshu_component } from "/framework/js/monkshu_component.mjs";
 import { apimanager as apiman } from "/framework/js/apimanager.mjs";
 
-// const getMessage = async () => {
-//     let resp = await apiman.rest(APP_CONSTANTS.API_MESSAGE, "POST", {}, false, true);
-//     if (!resp || !resp.result) router.reload();
-//     app_message.shadowRoot.querySelector("#message").value = resp.results.message;
-//     setTimeout(() => {
-//         router.loadPage(APP_CONSTANTS.RANDOM_HTML);
-//     }, 3000);
-// }
+const logged = async () => {
+    
+    let jsonReq = {}
+    jsonReq.Email = app_login.shadowRoot.querySelector("#email").value;
+    jsonReq.Password = app_login.shadowRoot.querySelector("#password").value;
 
-const signing = () => {
+    console.log(jsonReq);
+    let resp = await apiman.rest(APP_CONSTANTS.API_LOGIN, "POST", jsonReq , false, true);
+    console.log(resp.message);
+    if (!resp || !resp.result) 
+    alert("something went wrong");
+    else 
+    {
+        document.cookie = `TOKEN = ${resp.message}`;
+        alert("succesfull ")
+        router.loadPage(APP_CONSTANTS.DETAIL_HTML);
+    }
+}
+const signing = async() => {
     document.getElementsByTagName('app-login')[0].style.display = "none";
     document.getElementsByTagName('app-signup')[0].style.display = "block";
-
 }
 
 function register() {
@@ -29,4 +37,4 @@ function register() {
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
 
-export const app_login = { trueWebComponentMode, register, signing }
+export const app_login = { trueWebComponentMode, register, signing ,logged }
