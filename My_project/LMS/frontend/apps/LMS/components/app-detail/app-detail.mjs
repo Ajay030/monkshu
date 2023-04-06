@@ -40,6 +40,18 @@ const gotorem = async () => {
     }
 }
 
+const logout = ()=>{
+    const cooken = document.cookie.split('=');
+    console.log(cooken[1]);
+    document.cookie = "TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    if (document.cookie == "") {
+        router.loadPage(APP_CONSTANTS.LOGIN_HTML);
+        router.reload(APP_CONSTANTS.LOGIN_HTML);
+    }
+
+}
+
+
 async function elementRendered(element) {
     console.log(element);
     let resp = await apiman.rest(APP_CONSTANTS.API_DETAIL, "POST", {}, false, true);
@@ -146,4 +158,4 @@ function register() {
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
 
-export const app_detail = { trueWebComponentMode, register, gotoadd, gotorem, elementRendered, borrow ,vapis}
+export const app_detail = { trueWebComponentMode, register, gotoadd, gotorem, elementRendered, borrow ,vapis,logout}

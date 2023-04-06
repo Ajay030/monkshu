@@ -31,7 +31,6 @@ const signing = async() => {
 
 function register() {
     // convert this all into a WebComponent so we can use it
-    //console.log("hiiii");
     monkshu_component.register("app-login", `${APP_CONSTANTS.APP_PATH}/components/app-login/app-login.html`, app_login);
 }
 

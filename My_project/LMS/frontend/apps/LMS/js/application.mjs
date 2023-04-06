@@ -19,7 +19,11 @@ const init = async _ => {
 const main = async _ => {
 	apiman.registerAPIKeys(APP_CONSTANTS.API_KEYS, APP_CONSTANTS.KEY_HEADER);
 	let location = window.location.href;
-	if (!router.isInHistory(location) || !session.get(APP_CONSTANTS.USERID))
+	if (!document.cookie == "")
+	{
+		router.loadPage(APP_CONSTANTS.DETAIL_HTML);
+	}
+	else if (!router.isInHistory(location) || !session.get(APP_CONSTANTS.USERID))
 		router.loadPage(APP_CONSTANTS.LOGIN_HTML);
 	else 
 		router.loadPage(location);

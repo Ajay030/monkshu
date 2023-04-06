@@ -25,7 +25,7 @@ exports.doService = async (jsonReq) => {
         const position = await sqldriver.getQuery(
             `SELECT Role from User where Email = ?`, [user_mail]
         )
-        console.log(position);
+        console.log(position[0].Role);
         if (position.length) {
             if (position[0].Role == "librarian") {
                 return {
