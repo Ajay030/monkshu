@@ -63,8 +63,9 @@ async function elementRendered(element) {
             isbn.textContent = data[i].ISBN;
             copies.textContent = data[i].Count;
             Category.textContent = data[i].Category;
-            action.innerHTML =  (fun(data[i].ID) === 0) 
-              ?  `<button id="btn2" onclick='monkshu_env.components["app-detail"].borrow(${data[i].ID})>Borrow</button>`
+            console.log(await fun(data[i].ID))
+            action.innerHTML =  (await fun(data[i].ID) === 0) 
+              ?  `<button id="btn2" onclick='monkshu_env.components["app-detail"].borrow(${data[i].ID})'>Borrow</button>`
               : `<button id="btn" onclick='monkshu_env.components["app-detail"].vapis(${data[i].ID})'>Return</button>`;
             
 
@@ -87,8 +88,8 @@ async function elementRendered(element) {
         jsonReq.TOKEN = cooken[1];
         jsonReq.Book_id = id;
         let resp = await apiman.rest(APP_CONSTANTS.API_STATUS, "POST", jsonReq, false, true);
-        console.log(resp.message[0].Status)
-        if( resp.message[0].Status == "Borrow")
+        // console.log(resp.message[0].Status)
+        if( resp.message[0].Status === "Borrow")
         return 1 ;
         else
         return 0;

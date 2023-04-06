@@ -21,7 +21,7 @@ const insert = async () => {
     let resp = await apiman.rest(APP_CONSTANTS.API_ADDBOOK, "POST", jsonReq , false, true);
     console.log(resp);
     if (!resp || !resp.result) 
-    alert("something went wrong");
+    alert("something went wrong",resp.message);
     else 
     {
         alert(resp.message)
