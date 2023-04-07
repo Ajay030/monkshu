@@ -18,7 +18,6 @@ exports.doService = async (jsonReq) => {
     }
     try {
         // decode token and get the mail;
-        console.log("this is auht");
         const token = jsonReq.TOKEN;
         const decoded = jwt.verify(token, "ajaybhatheja");
         var user_mail = decoded.user_id;

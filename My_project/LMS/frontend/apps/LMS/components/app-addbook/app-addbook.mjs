@@ -25,9 +25,6 @@ const insert = async () => {
     else 
     {
         alert(resp.message)
-        //  document.getElementsByTagName('app-addbook')[0].style.display = "none";
-        //  document.getElementsByTagName('app-login')[0].style.display = "block";
- 
     }
    
 }
@@ -38,7 +35,6 @@ const goback = async () => {
 
 function register() {
     // convert this all into a WebComponent so we can use it
-    //console.log("hiiii");
     monkshu_component.register("app-addbook", `${APP_CONSTANTS.APP_PATH}/components/app-addbook/app-addbook.html`, app_addbook);
 }
 

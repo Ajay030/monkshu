@@ -27,7 +27,6 @@ const goback = async () => {
 
 function register() {
     // convert this all into a WebComponent so we can use it
-    //console.log("hiiii");
     monkshu_component.register("app-delbook", `${APP_CONSTANTS.APP_PATH}/components/app-delbook/app-delbook.html`, app_delbook);
 }
 

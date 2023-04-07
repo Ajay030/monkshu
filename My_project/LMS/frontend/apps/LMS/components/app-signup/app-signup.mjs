@@ -14,7 +14,6 @@ const signed = async () => {
     jsonReq.Password = app_signup.shadowRoot.querySelector("#Password").value;
     jsonReq.Join_date = app_signup.shadowRoot.querySelector("#Join_date").value;
 
-    console.log(jsonReq);
     let resp = await apiman.rest(APP_CONSTANTS.API_SIGNUP, "POST", jsonReq , false, true);
     console.log(resp);
     if (!resp || !resp.result) 
@@ -33,7 +32,6 @@ const log = async() => {
 }
 function register() {
     // convert this all into a WebComponent so we can use it
-    //console.log("hiiii");
     monkshu_component.register("app-signup", `${APP_CONSTANTS.APP_PATH}/components/app-signup/app-signup.html`, app_signup);
 }
 
